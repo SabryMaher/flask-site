@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Admin Login | Flask Site{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width:520px; margin:40px auto;">
+    <div class="card" style="padding:22px; border-radius:14px;">
+        <h2 style="margin:0 0 12px;">تسجيل دخول الإدارة</h2>
+        <p style="opacity:.75; margin:0 0 18px;">ادخل اسم المستخدم وكلمة المرور لعرض رسائل التواصل</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, msg in messages %}
+        <div style="
+            padding:10px 12px; border-radius:10px; margin:10px 0;
+            {% if category=='error' %}
+              background:rgba(255,0,0,.12); border:1px solid rgba(255,0,0,.22);
+            {% else %}
+              background:rgba(0,255,120,.10); border:1px solid rgba(0,255,120,.18);
+            {% endif %}
+          ">
+            {{ msg }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <label style="display:block; margin-bottom:6px;">اسم المستخدم</label>
+            <input name="username" required style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.12);
+               background:rgba(0,0,0,.15); color:#fff; outline:none;">
+
+            <label style="display:block; margin:12px 0 6px;">كلمة المرور</label>
+            <input type="password" name="password" required style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.12);
+               background:rgba(0,0,0,.15); color:#fff; outline:none;">
+
+            <button type="submit" style="width:100%; margin-top:14px; padding:12px 14px; border-radius:10px;
+               border:0; background:#2aa8ff; color:#001; font-weight:700; cursor:pointer;">
+                دخول
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

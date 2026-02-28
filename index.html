@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>أهلاً بيك 👋</h1>
+    <p>ده أول موقع كامل بـ Flask (صفحات + تصميم + ملفات static)</p>
+    <div class="btns">
+        <a class="btn" href="/about">من نحن</a>
+        <a class="btn btn-outline" href="/contact">تواصل</a>
+    </div>
+</section>
+
+<section class="cards">
+    <div class="card">
+        <h3>سرعة وبساطة</h3>
+        <p>Flask خفيف وسهل.</p>
+    </div>
+    <div class="card">
+        <h3>Templates</h3>
+        <p>نظام Jinja بيخليك تبني Layout محترم.</p>
+    </div>
+    <div class="card">
+        <h3>Static Files</h3>
+        <p>CSS/JS/Images في مكان منظم.</p>
+    </div>
+</section>
+{% endblock %}

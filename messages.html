@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Messages | Flask Site{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width:1000px; margin:30px auto;">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+        <h2 style="margin:0;">رسائل التواصل</h2>
+
+        <form method="GET" style="display:flex; gap:8px; align-items:center;">
+            <input name="q" value="{{ q }}" placeholder="بحث بالاسم/الإيميل/الرسالة" style="width:320px; max-width:70vw; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12);
+               background:rgba(0,0,0,.15); color:#fff; outline:none;">
+            <button type="submit"
+                style="padding:10px 14px; border-radius:10px; border:0; background:#2aa8ff; font-weight:700; cursor:pointer;">
+                بحث
+            </button>
+            {% if q %}
+            <a href="/admin/messages"
+                style="padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.14); text-decoration:none; color:#fff;">
+                مسح
+            </a>
+            {% endif %}
+        </form>
+    </div>
+
+    <div style="margin-top:16px;">
+        {% if messages|length == 0 %}
+        <p style="opacity:.75;">لا توجد رسائل.</p>
+        {% else %}
+        {% for m in messages %}
+        <div
+            style="border:1px solid rgba(255,255,255,.10); border-radius:14px; padding:14px 16px; margin-bottom:12px; background:rgba(0,0,0,.12);">
+            <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+                <div>
+                    <div style="font-weight:800;">{{ m["name"] }}</div>
+                    <div style="opacity:.8;">{{ m["email"] }}</div>
+                </div>
+                <div style="opacity:.7;">{{ m["created_at"] }}</div>
+            </div>
+
+            <div style="margin-top:10px; line-height:1.7; white-space:pre-wrap;">{{ m["message"] }}</div>
+
+            <form method="POST" action="/admin/messages/{{ m['id'] }}/delete" style="margin-top:12px;"
+                onsubmit="return confirm('متأكد أنك تريد حذف الرسالة؟');">
+                <button type="submit"
+                    style="padding:10px 14px; border-radius:10px; border:0; background:rgba(255,0,0,.22); color:#fff; cursor:pointer;">
+                    حذف
+                </button>
+            </form>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

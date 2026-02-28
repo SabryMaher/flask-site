@@ -1,0 +1,146 @@
+:root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #38bdf8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.nav {
+    background: #0b1220;
+    border-bottom: 1px solid #1f2937;
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+}
+
+.brand {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.links a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-right: 14px;
+}
+
+.links a:hover {
+    color: var(--text);
+}
+
+.hero {
+    padding: 50px 0 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin: 0 0 10px;
+}
+
+.hero p {
+    color: var(--muted);
+    margin: 0 0 18px;
+}
+
+.btns {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background: var(--accent);
+    color: #001018;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--text);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding: 20px 0 60px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid #1f2937;
+    padding: 16px;
+    border-radius: 14px;
+}
+
+.card h3 {
+    margin: 0 0 8px;
+}
+
+.card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.form {
+    max-width: 520px;
+    display: grid;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+input,
+textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #1f2937;
+    background: #0b1220;
+    color: var(--text);
+}
+
+label {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.alert {
+    background: #052e1a;
+    border: 1px solid #14532d;
+    padding: 10px 12px;
+    border-radius: 10px;
+    margin: 14px 0;
+}
+
+.footer {
+    border-top: 1px solid #1f2937;
+    padding: 16px 0;
+    color: var(--muted);
+}
